@@ -9,23 +9,14 @@ namespace Spryker\Zed\Asset\Dependency\Facade;
 
 use Generated\Shared\Transfer\StoreTransfer;
 
-interface AssetToStoreReferenceInterface
+interface AssetToStoreInterface
 {
     /**
      * @param string $storeReference
      *
-     * @throws \Spryker\Zed\StoreReference\Business\Exception\StoreReferenceNotFoundException
+     * @throws \Spryker\Zed\Store\Business\Exception\StoreReferenceNotFoundException
      *
      * @return \Generated\Shared\Transfer\StoreTransfer
      */
     public function getStoreByStoreReference(string $storeReference): StoreTransfer;
-
-    /**
-     * @param string $storeName
-     *
-     * @throws \Spryker\Zed\StoreReference\Business\Exception\StoreReferenceNotFoundException
-     *
-     * @return \Generated\Shared\Transfer\StoreTransfer
-     */
-    public function getStoreByStoreName(string $storeName): StoreTransfer;
 }
