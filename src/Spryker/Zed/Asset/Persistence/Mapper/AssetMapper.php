@@ -27,6 +27,7 @@ class AssetMapper
     ): AssetTransfer {
         $assetTransfer->fromArray($assetEntity->toArray(), true);
 
+        /** @phpstan-ignore function.alreadyNarrowedType */
         if (method_exists($assetEntity, 'getLastMessageTimestamp')) {
             $timestamp = $assetEntity->getLastMessageTimestamp(AssetTimeStamp::TIMESTAMP_FORMAT);
             $assetTransfer->setLastMessageTimestamp($timestamp);

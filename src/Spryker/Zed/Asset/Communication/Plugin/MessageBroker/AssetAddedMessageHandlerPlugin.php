@@ -40,7 +40,7 @@ class AssetAddedMessageHandlerPlugin extends AbstractPlugin implements MessageHa
      *
      * @api
      *
-     * @return array<string, callable>
+     * @return iterable<string, callable>
      */
     public function handles(): iterable
     {
