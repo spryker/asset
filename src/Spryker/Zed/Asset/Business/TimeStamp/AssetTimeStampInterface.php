@@ -12,18 +12,7 @@ use Generated\Shared\Transfer\MessageAttributesTransfer;
 
 interface AssetTimeStampInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\AssetTransfer $assetTransfer
-     * @param \Generated\Shared\Transfer\MessageAttributesTransfer $messageAttributesTransfer
-     *
-     * @return bool
-     */
     public function shouldTransferMessageBeProcessed(AssetTransfer $assetTransfer, MessageAttributesTransfer $messageAttributesTransfer): bool;
 
-    /**
-     * @param \Generated\Shared\Transfer\MessageAttributesTransfer $messageAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\MessageAttributesTransfer
-     */
     public function updateMessageAttributesTimestampIfRequired(MessageAttributesTransfer $messageAttributesTransfer): MessageAttributesTransfer;
 }

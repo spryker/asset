@@ -44,13 +44,6 @@ class AssetRequestDispatcher implements AssetRequestDispatcherInterface
      */
     protected $assetTimeStamp;
 
-    /**
-     * @param \Spryker\Zed\Asset\Persistence\AssetRepositoryInterface $assetRepository
-     * @param \Spryker\Zed\Asset\Business\Creator\AssetCreatorInterface $assetCreator
-     * @param \Spryker\Zed\Asset\Business\Updater\AssetUpdaterInterface $assetUpdater
-     * @param \Spryker\Zed\Asset\Business\Deleter\AssetDeleterInterface $assetDeleter
-     * @param \Spryker\Zed\Asset\Business\TimeStamp\AssetTimeStampInterface $assetTimeStamp
-     */
     public function __construct(
         AssetRepositoryInterface $assetRepository,
         AssetCreatorInterface $assetCreator,
@@ -91,11 +84,6 @@ class AssetRequestDispatcher implements AssetRequestDispatcherInterface
         return $this->assetUpdater->updateAsset($assetUpdatedTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetAddedTransfer $assetAddedTransfer
-     *
-     * @return \Generated\Shared\Transfer\AssetTransfer
-     */
     public function dispatchCreateAssetRequest(AssetAddedTransfer $assetAddedTransfer): AssetTransfer
     {
         $assetTransfer = $this->assetRepository->findAssetByAssetUuid($assetAddedTransfer->getAssetIdentifierOrFail());
@@ -142,11 +130,6 @@ class AssetRequestDispatcher implements AssetRequestDispatcherInterface
         return $this->assetUpdater->updateAsset($assetUpdatedTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetUpdatedTransfer $assetUpdatedTransfer
-     *
-     * @return \Generated\Shared\Transfer\AssetTransfer
-     */
     public function dispatchSaveAssetRequest(AssetUpdatedTransfer $assetUpdatedTransfer): AssetTransfer
     {
         $assetTransfer = $this->assetRepository->findAssetByAssetUuid($assetUpdatedTransfer->getAssetIdentifierOrFail());
@@ -189,11 +172,6 @@ class AssetRequestDispatcher implements AssetRequestDispatcherInterface
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetDeletedTransfer $assetDeletedTransfer
-     *
-     * @return void
-     */
     public function dispatchRemoveAssetRequest(AssetDeletedTransfer $assetDeletedTransfer): void
     {
         $assetTransfer = $this->assetRepository->findAssetByAssetUuid($assetDeletedTransfer->getAssetIdentifierOrFail());

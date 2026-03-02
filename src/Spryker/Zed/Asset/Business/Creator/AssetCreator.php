@@ -45,13 +45,6 @@ class AssetCreator implements AssetCreatorInterface
      */
     protected $eventFacade;
 
-    /**
-     * @param \Spryker\Zed\Asset\Persistence\AssetRepositoryInterface $assetRepository
-     * @param \Spryker\Zed\Asset\Persistence\AssetEntityManagerInterface $assetEntityManager
-     * @param \Spryker\Zed\Asset\Business\Mapper\AssetMapperInterface $assetMapper
-     * @param \Spryker\Zed\Asset\Dependency\Facade\AssetToStoreInterface $storeFacade
-     * @param \Spryker\Zed\Asset\Dependency\Facade\AssetToEventFacadeInterface $eventFacade
-     */
     public function __construct(
         AssetRepositoryInterface $assetRepository,
         AssetEntityManagerInterface $assetEntityManager,
@@ -153,11 +146,6 @@ class AssetCreator implements AssetCreatorInterface
         return $assetTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetTransfer $assetTransfer
-     *
-     * @return void
-     */
     protected function sendEvent(AssetTransfer $assetTransfer): void
     {
         $eventEntityTransfer = (new EventEntityTransfer())

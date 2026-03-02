@@ -33,9 +33,6 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
  */
 class AssetBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\Asset\Business\RequestDispatcher\AssetRequestDispatcherInterface
-     */
     public function createAssetRequestDispatcher(): AssetRequestDispatcherInterface
     {
         return new AssetRequestDispatcher(
@@ -47,9 +44,6 @@ class AssetBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Asset\Business\Creator\AssetCreatorInterface
-     */
     public function createAssetCreator(): AssetCreatorInterface
     {
         return new AssetCreator(
@@ -61,9 +55,6 @@ class AssetBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Asset\Business\Updater\AssetUpdaterInterface
-     */
     public function createAssetUpdater(): AssetUpdaterInterface
     {
         return new AssetUpdater(
@@ -74,9 +65,6 @@ class AssetBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Asset\Business\Deleter\AssetDeleterInterface
-     */
     public function createAssetDeleter(): AssetDeleterInterface
     {
         return new AssetDeleter(
@@ -88,17 +76,11 @@ class AssetBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Asset\Business\TimeStamp\AssetTimeStampInterface
-     */
     public function createAssetTimeStamp(): AssetTimeStampInterface
     {
         return new AssetTimeStamp();
     }
 
-    /**
-     * @return \Spryker\Zed\Asset\Business\Writer\AssetStoreRelationWriterInterface
-     */
     public function createAssetStoreRelationWriter(): AssetStoreRelationWriterInterface
     {
         return new AssetStoreRelationWriter(
@@ -109,25 +91,16 @@ class AssetBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Asset\Dependency\Facade\AssetToStoreInterface
-     */
     public function getStoreFacade(): AssetToStoreInterface
     {
         return $this->getProvidedDependency(AssetDependencyProvider::FACADE_STORE);
     }
 
-    /**
-     * @return \Spryker\Zed\Asset\Business\Mapper\AssetMapperInterface
-     */
     public function createAssetMapper(): AssetMapperInterface
     {
         return new AssetMapper();
     }
 
-    /**
-     * @return \Spryker\Zed\Asset\Dependency\Facade\AssetToEventFacadeInterface
-     */
     public function getEventFacade(): AssetToEventFacadeInterface
     {
         return $this->getProvidedDependency(AssetDependencyProvider::FACADE_EVENT);

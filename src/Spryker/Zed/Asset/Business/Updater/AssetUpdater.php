@@ -39,12 +39,6 @@ class AssetUpdater implements AssetUpdaterInterface
      */
     protected $eventFacade;
 
-    /**
-     * @param \Spryker\Zed\Asset\Persistence\AssetRepositoryInterface $assetRepository
-     * @param \Spryker\Zed\Asset\Persistence\AssetEntityManagerInterface $assetEntityManager
-     * @param \Spryker\Zed\Asset\Dependency\Facade\AssetToStoreInterface $storeFacade
-     * @param \Spryker\Zed\Asset\Dependency\Facade\AssetToEventFacadeInterface $eventFacade
-     */
     public function __construct(
         AssetRepositoryInterface $assetRepository,
         AssetEntityManagerInterface $assetEntityManager,
@@ -139,12 +133,6 @@ class AssetUpdater implements AssetUpdaterInterface
         return $assetTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetTransfer $assetTransfer
-     * @param \Generated\Shared\Transfer\AssetTransfer $previousStateAssetTransfer
-     *
-     * @return void
-     */
     protected function sendEvents(AssetTransfer $assetTransfer, AssetTransfer $previousStateAssetTransfer): void
     {
         if (

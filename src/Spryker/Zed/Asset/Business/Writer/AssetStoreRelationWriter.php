@@ -19,12 +19,6 @@ use Spryker\Zed\Asset\Persistence\AssetRepositoryInterface;
 
 class AssetStoreRelationWriter implements AssetStoreRelationWriterInterface
 {
-    /**
-     * @param \Spryker\Zed\Asset\Persistence\AssetRepositoryInterface $assetRepository
-     * @param \Spryker\Zed\Asset\Persistence\AssetEntityManagerInterface $assetEntityManager
-     * @param \Spryker\Zed\Asset\Dependency\Facade\AssetToStoreInterface $storeFacade
-     * @param \Spryker\Zed\Asset\Dependency\Facade\AssetToEventFacadeInterface $eventFacade
-     */
     public function __construct(
         protected AssetRepositoryInterface $assetRepository,
         protected AssetEntityManagerInterface $assetEntityManager,
@@ -33,9 +27,6 @@ class AssetStoreRelationWriter implements AssetStoreRelationWriterInterface
     ) {
     }
 
-    /**
-     * @return void
-     */
     public function refreshAllAssetStoreRelations(): void
     {
         $assetCriteriaTransfer = (new AssetCriteriaTransfer())
@@ -49,11 +40,6 @@ class AssetStoreRelationWriter implements AssetStoreRelationWriterInterface
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetTransfer $assetTransfer
-     *
-     * @return void
-     */
     protected function refreshAssetStoreRelationsByAsset(AssetTransfer $assetTransfer): void
     {
         $storeTransfers = $this->storeFacade->getAllStores();
@@ -72,12 +58,6 @@ class AssetStoreRelationWriter implements AssetStoreRelationWriterInterface
         $this->sendEvents($assetTransfer, $previousStateAssetTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetTransfer $assetTransfer
-     * @param \Generated\Shared\Transfer\AssetTransfer $previousStateAssetTransfer
-     *
-     * @return void
-     */
     protected function sendEvents(AssetTransfer $assetTransfer, AssetTransfer $previousStateAssetTransfer): void
     {
         if (

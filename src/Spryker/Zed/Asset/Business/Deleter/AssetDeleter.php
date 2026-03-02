@@ -44,13 +44,6 @@ class AssetDeleter implements AssetDeleterInterface
      */
     protected $eventFacade;
 
-    /**
-     * @param \Spryker\Zed\Asset\Persistence\AssetRepositoryInterface $assetRepository
-     * @param \Spryker\Zed\Asset\Persistence\AssetEntityManagerInterface $assetEntityManager
-     * @param \Spryker\Zed\Asset\Business\Mapper\AssetMapperInterface $assetMapper
-     * @param \Spryker\Zed\Asset\Dependency\Facade\AssetToStoreInterface $storeFacade
-     * @param \Spryker\Zed\Asset\Dependency\Facade\AssetToEventFacadeInterface $eventFacade
-     */
     public function __construct(
         AssetRepositoryInterface $assetRepository,
         AssetEntityManagerInterface $assetEntityManager,
@@ -113,11 +106,6 @@ class AssetDeleter implements AssetDeleterInterface
         $this->sendEvent($assetTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetDeletedTransfer $assetDeletedTransfer
-     *
-     * @return void
-     */
     public function removeAsset(AssetDeletedTransfer $assetDeletedTransfer): void
     {
         $messageAttributesTransfer = $assetDeletedTransfer->getMessageAttributesOrFail();
@@ -166,11 +154,6 @@ class AssetDeleter implements AssetDeleterInterface
         $this->sendEvent($assetTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetTransfer $assetTransfer
-     *
-     * @return void
-     */
     protected function sendEvent(AssetTransfer $assetTransfer): void
     {
         $eventEntityTransfer = (new EventEntityTransfer())

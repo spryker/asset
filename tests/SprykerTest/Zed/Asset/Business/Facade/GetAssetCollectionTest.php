@@ -36,9 +36,6 @@ class GetAssetCollectionTest extends Unit
      */
     protected AssetBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testGetAssetCollectionReturnsEmptyCollectionWhileNoCriteriaMatched(): void
     {
         // Arrange
@@ -54,9 +51,6 @@ class GetAssetCollectionTest extends Unit
         $this->assertCount(0, $assetCollectionTransfer->getAssets());
     }
 
-    /**
-     * @return void
-     */
     public function testGetAssetCollectionReturnsCollectionWithOneAssetWhileAssetCriteriaMatched(): void
     {
         // Arrange
@@ -74,9 +68,6 @@ class GetAssetCollectionTest extends Unit
         $this->assertSame($assetTransfer->getIdAsset(), $assetCollectionTransfer->getAssets()->getIterator()->current()->getIdAsset());
     }
 
-    /**
-     * @return void
-     */
     public function testGetAssetCollectionReturnsCollectionWithFiveAssetsWhileHavingLimitOffsetPaginationApplied(): void
     {
         // Arrange

@@ -23,11 +23,6 @@ interface AssetRequestDispatcherInterface
      */
     public function dispatchAssetAddedTransferRequest(AssetAddedTransfer $assetAddedTransfer): AssetTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetAddedTransfer $assetAddedTransfer
-     *
-     * @return \Generated\Shared\Transfer\AssetTransfer
-     */
     public function dispatchCreateAssetRequest(AssetAddedTransfer $assetAddedTransfer): AssetTransfer;
 
     /**
@@ -39,11 +34,6 @@ interface AssetRequestDispatcherInterface
      */
     public function dispatchAssetUpdatedTransferRequest(AssetUpdatedTransfer $assetUpdatedTransfer): AssetTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetUpdatedTransfer $assetUpdatedTransfer
-     *
-     * @return \Generated\Shared\Transfer\AssetTransfer
-     */
     public function dispatchSaveAssetRequest(AssetUpdatedTransfer $assetUpdatedTransfer): AssetTransfer;
 
     /**
@@ -55,10 +45,5 @@ interface AssetRequestDispatcherInterface
      */
     public function dispatchAssetDeletedTransferRequest(AssetDeletedTransfer $assetDeletedTransfer): void;
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetDeletedTransfer $assetDeletedTransfer
-     *
-     * @return void
-     */
     public function dispatchRemoveAssetRequest(AssetDeletedTransfer $assetDeletedTransfer): void;
 }

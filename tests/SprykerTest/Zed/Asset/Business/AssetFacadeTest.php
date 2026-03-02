@@ -52,9 +52,6 @@ class AssetFacadeTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -62,9 +59,6 @@ class AssetFacadeTest extends Unit
         $this->tester->setStoreReferenceData([static::TEST_STORE_NAME => static::STORE_REFERENCE]);
     }
 
-    /**
-     * @return void
-     */
     public function testAddAssetAssertThrowsExceptionWhenStoreReferenceIsInvalid(): void
     {
         // Arrange
@@ -81,9 +75,6 @@ class AssetFacadeTest extends Unit
         $this->tester->getFacade()->addAsset($assetAddedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateAssetThrowsExceptionWhenStoreReferenceIsInvalid(): void
     {
         // Arrange
@@ -100,9 +91,6 @@ class AssetFacadeTest extends Unit
         $this->tester->getFacade()->updateAsset($assetUpdatedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteAssetAssertThrowsExceptionWhenStoreReferenceIsInvalid(): void
     {
         // Arrange
@@ -119,9 +107,6 @@ class AssetFacadeTest extends Unit
         $this->tester->getFacade()->deleteAsset($assetDeletedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testFindAssetById(): void
     {
         // Arrange
@@ -134,9 +119,6 @@ class AssetFacadeTest extends Unit
         $this->assertEquals($expectedAssetTransfer, $assetTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testAddAssetWhenTheAssetDoesNotExistThenTheAssetIsAdded(): void
     {
         // Arrange
@@ -156,9 +138,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetAddedTransferAndAssetEntityAreEqual($assetAddedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testCreateAssetWhenTheAssetDoesNotExistThenTheAssetIsCreated(): void
     {
         // Arrange
@@ -177,9 +156,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetAddedTransferAndAssetEntityAreEqual($assetAddedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testAddAssetWhenTheAssetAlreadyExistsAndTheMessageTimestampIsNullThenTheAssetIsUpdated(): void
     {
         // Arrange
@@ -199,9 +175,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetAddedTransferAndAssetEntityAreEqual($assetAddedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testCreateAssetWhenTheAssetAlreadyExistsAndTheMessageTimestampIsNullThenTheAssetIsUpdated(): void
     {
         // Arrange
@@ -219,9 +192,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetAddedTransferAndAssetEntityAreEqual($assetAddedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testAddAssetWhenTheAssetAlreadyExistsAndTheAssetTimestampIsOlderThanTheMessageThenTheAssetIsUpdated(): void
     {
         // Arrange
@@ -246,9 +216,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetAddedTransferAndAssetEntityAreEqual($assetAddedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testCreateAssetWhenTheAssetAlreadyExistsAndTheAssetTimestampIsOlderThanTheMessageThenTheAssetIsUpdated(): void
     {
         // Arrange
@@ -272,9 +239,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetAddedTransferAndAssetEntityAreEqual($assetAddedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testAddAssetWhenTheAssetAlreadyExistsAndTheAssetTimestampIsNewerThanTheMessageTimestampThenTheAssetIsNotUpdated(): void
     {
         // Arrange
@@ -299,9 +263,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetTransferAndAssetEntityAreEqual($expectedAssetTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testCreateAssetWhenTheAssetAlreadyExistsAndTheAssetTimestampIsNewerThanTheMessageTimestampThenTheAssetIsNotUpdated(): void
     {
         // Arrange
@@ -325,9 +286,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetTransferAndAssetEntityAreEqual($expectedAssetTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testAddAssetWhenTheAssetAlreadyExistsButWasDeletedAndTheAssetTimestampIsOlderThanTheMessageTimestampThenTheAssetIsUpdated(): void
     {
         // Arrange
@@ -353,9 +311,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetAddedTransferAndAssetEntityAreEqual($assetAddedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testCreateAssetWhenTheAssetAlreadyExistsButWasDeletedAndTheAssetTimestampIsOlderThanTheMessageTimestampThenTheAssetIsUpdated(): void
     {
         // Arrange
@@ -380,9 +335,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetAddedTransferAndAssetEntityAreEqual($assetAddedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateAssetWhenTheAssetDoesNotExistThenTheAssetIsAdded(): void
     {
         // Arrange
@@ -399,9 +351,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetUpdatedTransferAndAssetEntityAreEqual($assetUpdatedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testSaveAssetWhenTheAssetDoesNotExistThenTheAssetIsAdded(): void
     {
         // Arrange
@@ -416,9 +365,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetUpdatedTransferAndAssetEntityAreEqual($assetUpdatedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateAssetWhenTheAssetAlreadyExistsAndTheMessageTimestampIsNullThenTheAssetIsUpdated(): void
     {
         // Arrange
@@ -438,9 +384,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetUpdatedTransferAndAssetEntityAreEqual($assetUpdatedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testSaveAssetWhenTheAssetAlreadyExistsAndTheMessageTimestampIsNullThenTheAssetIsUpdated(): void
     {
         // Arrange
@@ -458,9 +401,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetUpdatedTransferAndAssetEntityAreEqual($assetUpdatedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateAssetWhenTheAssetAlreadyExistsAndTheAssetTimestampIsOlderThanTheMessageTimestampThenTheAssetIsUpdated(): void
     {
         // Arrange
@@ -485,9 +425,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetUpdatedTransferAndAssetEntityAreEqual($assetUpdatedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testSaveAssetWhenTheAssetAlreadyExistsAndTheAssetTimestampIsOlderThanTheMessageTimestampThenTheAssetIsUpdated(): void
     {
         // Arrange
@@ -511,9 +448,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetUpdatedTransferAndAssetEntityAreEqual($assetUpdatedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateAssetWhenTheAssetAlreadyExistsAndTheAssetTimestampIsNewerThanTheMessageTimestampThenTheAssetIsNotUpdated(): void
     {
         // Arrange
@@ -538,9 +472,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetTransferAndAssetEntityAreEqual($expectedAsset);
     }
 
-    /**
-     * @return void
-     */
     public function testSaveAssetWhenTheAssetAlreadyExistsAndTheAssetTimestampIsNewerThanTheMessageTimestampThenTheAssetIsNotUpdated(): void
     {
         // Arrange
@@ -564,9 +495,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetTransferAndAssetEntityAreEqual($expectedAsset);
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteAssetWhenTheAssetDoesNotExistAndIsActiveColumnNotPresentThenNoAssetIsCreated(): void
     {
         // Arrange
@@ -587,9 +515,6 @@ class AssetFacadeTest extends Unit
         $this->assertNull($assetEntity);
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveAssetWhenTheAssetDoesNotExistAndIsActiveColumnNotPresentThenNoAssetIsCreated(): void
     {
         // Arrange
@@ -608,9 +533,6 @@ class AssetFacadeTest extends Unit
         $this->assertNull($assetEntity);
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteAssetWhenTheAssetAlreadyExistsAndIsActiveColumnNotPresentAndTheMessageTimestampIsNullThenTheAssetIsDeleted(): void
     {
         // Arrange
@@ -634,9 +556,6 @@ class AssetFacadeTest extends Unit
         $this->assertNull($assetEntity);
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveAssetWhenTheAssetAlreadyExistsAndIsActiveColumnNotPresentAndTheMessageTimestampIsNullThenTheAssetIsDeleted(): void
     {
         // Arrange
@@ -658,9 +577,6 @@ class AssetFacadeTest extends Unit
         $this->assertNull($assetEntity);
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteAssetWhenTheAssetAlreadyExistsAndIsActiveColumnNotPresentAndTheAssetTimestampIsOlderThanTheMessageTimestampThenTheAssetIsDeleted(): void
     {
         // Arrange
@@ -688,9 +604,6 @@ class AssetFacadeTest extends Unit
         $this->assertNull($assetEntity);
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveAssetWhenTheAssetAlreadyExistsAndIsActiveColumnNotPresentAndTheAssetTimestampIsOlderThanTheMessageTimestampThenTheAssetIsDeleted(): void
     {
         // Arrange
@@ -717,9 +630,6 @@ class AssetFacadeTest extends Unit
         $this->assertNull($assetEntity);
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteAssetWhenTheAssetAlreadyExistsAndIsActiveColumnNotPresentAndTheAssetTimestampIsNewerThanTheMessageTimestampThenTheAssetIsDeleted(): void
     {
         // Arrange
@@ -746,9 +656,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetTransferAndAssetEntityAreEqual($expectedAsset);
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveAssetWhenTheAssetAlreadyExistsAndIsActiveColumnNotPresentAndTheAssetTimestampIsNewerThanTheMessageTimestampThenTheAssetIsDeleted(): void
     {
         // Arrange
@@ -774,9 +681,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetTransferAndAssetEntityAreEqual($expectedAsset);
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteAssetWhenTheAssetDoesNotExistThenAnInactiveAssetIsCreated(): void
     {
         // Arrange
@@ -793,9 +697,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetDeletedTransferAndAssetEntityAreEqual($assetDeletedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveAssetWhenTheAssetDoesNotExistThenAnInactiveAssetIsCreated(): void
     {
         // Arrange
@@ -810,9 +711,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetDeletedTransferAndAssetEntityAreEqual($assetDeletedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteAssetWhenTheAssetAlreadyExistsAndTheMessageTimestampIsNullThenTheAssetIsSetInactive(): void
     {
         // Arrange
@@ -839,9 +737,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetTransferAndAssetEntityAreEqualWithNewerTimestamp($expectedAssetTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveAssetWhenTheAssetAlreadyExistsAndTheMessageTimestampIsNullThenTheAssetIsSetInactive(): void
     {
         // Arrange
@@ -866,9 +761,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetTransferAndAssetEntityAreEqualWithNewerTimestamp($expectedAssetTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteAssetWhenTheAssetAlreadyExistsAndTheAssetTimestampIsOlderThanTheMessageTimestampThenTheAssetIsSetInactive(): void
     {
         // Arrange
@@ -897,9 +789,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetTransferAndAssetEntityAreEqualWithNewerTimestamp($expectedAssetTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveAssetWhenTheAssetAlreadyExistsAndTheAssetTimestampIsOlderThanTheMessageTimestampThenTheAssetIsSetInactive(): void
     {
         // Arrange
@@ -927,9 +816,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetTransferAndAssetEntityAreEqualWithNewerTimestamp($expectedAssetTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteAssetWhenTheAssetAlreadyExistsAndTheAssetTimestampIsNewerThanTheMessageTimestampThenTheAssetIsNotModified(): void
     {
         // Arrange
@@ -955,9 +841,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetTransferAndAssetEntityAreEqual($initialAssetTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testRemoveAssetWhenTheAssetAlreadyExistsAndTheAssetTimestampIsNewerThanTheMessageTimestampThenTheAssetIsNotModified(): void
     {
         // Arrange
@@ -982,9 +865,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetTransferAndAssetEntityAreEqual($initialAssetTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testAddAssetWhenTheAssetAlreadyExistsAndTheAssetLastMessageTimestampIsNullThenTheAssetIsUpdated(): void
     {
         // Arrange
@@ -1006,9 +886,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetAddedTransferAndAssetEntityAreEqual($assetAddedTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testCreateAssetWhenTheAssetAlreadyExistsAndTheAssetLastMessageTimestampIsNullThenTheAssetIsUpdated(): void
     {
         // Arrange
@@ -1028,11 +905,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetAddedTransferAndAssetEntityAreEqual($assetAddedTransfer);
     }
 
-    /**
-     * @param array $entityManagerMockedMethods
-     *
-     * @return \Spryker\Zed\Asset\Business\AssetFacade
-     */
     public function getFacadeMockWithMockedEntityManager(array $entityManagerMockedMethods): AssetFacade
     {
         $mockedMethods = array_keys($entityManagerMockedMethods);
@@ -1050,9 +922,6 @@ class AssetFacadeTest extends Unit
         return $assetFacadeMock;
     }
 
-    /**
-     * @return void
-     */
     public function testRefreshAllAssetStoreRelationsIfNewStoreWasAddedAppendsThisStoreIntoAssetStoreRelations(): void
     {
         if (!$this->tester->isDynamicStoreEnabled()) {
@@ -1075,9 +944,6 @@ class AssetFacadeTest extends Unit
         $this->tester->assertAssetStoreRelationExists($assetTransfer->getIdAsset(), $storeTransfer->getIdStore());
     }
 
-    /**
-     * @return void
-     */
     public function testRefreshAllAssetStoreRelationsDoesNothingToExistingRelationsIfNoStoreWasAdded(): void
     {
         if (!$this->tester->isDynamicStoreEnabled()) {

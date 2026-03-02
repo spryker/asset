@@ -20,11 +20,6 @@ use Spryker\Zed\PropelOrm\Business\Runtime\ActiveQuery\Criteria;
  */
 class AssetRepository extends AbstractRepository implements AssetRepositoryInterface
 {
-    /**
-     * @param string $assetUuid
-     *
-     * @return \Generated\Shared\Transfer\AssetTransfer|null
-     */
     public function findAssetByAssetUuid(string $assetUuid): ?AssetTransfer
     {
         $assetEntity = $this->getFactory()->createAssetQuery()
@@ -64,11 +59,6 @@ class AssetRepository extends AbstractRepository implements AssetRepositoryInter
             ->mapAssetEntityToAssetTransfer($assetEntity, new AssetTransfer());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetCriteriaTransfer $assetCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\AssetCollectionTransfer
-     */
     public function getAssetCollection(AssetCriteriaTransfer $assetCriteriaTransfer): AssetCollectionTransfer
     {
         $assetCollectionTransfer = new AssetCollectionTransfer();
@@ -87,12 +77,6 @@ class AssetRepository extends AbstractRepository implements AssetRepositoryInter
             ->mapAssetEntitiesToAssetCollectionTransfer($assetQuery->find(), $assetCollectionTransfer);
     }
 
-    /**
-     * @param \Orm\Zed\Asset\Persistence\SpyAssetQuery $assetQuery
-     * @param \Generated\Shared\Transfer\PaginationTransfer $paginationTransfer
-     *
-     * @return \Orm\Zed\Asset\Persistence\SpyAssetQuery
-     */
     protected function applyAssetPagination(SpyAssetQuery $assetQuery, PaginationTransfer $paginationTransfer): SpyAssetQuery
     {
         $paginationTransfer->setNbResults($assetQuery->count());
@@ -105,12 +89,6 @@ class AssetRepository extends AbstractRepository implements AssetRepositoryInter
         return $assetQuery;
     }
 
-    /**
-     * @param \Orm\Zed\Asset\Persistence\SpyAssetQuery $assetQuery
-     * @param \Generated\Shared\Transfer\AssetCriteriaTransfer $assetCriteriaTransfer
-     *
-     * @return \Orm\Zed\Asset\Persistence\SpyAssetQuery
-     */
     protected function applyAssetFilters(SpyAssetQuery $assetQuery, AssetCriteriaTransfer $assetCriteriaTransfer): SpyAssetQuery
     {
         $assetConditionsTransfer = $assetCriteriaTransfer->getAssetConditions();

@@ -22,11 +22,6 @@ interface AssetEntityManagerInterface
         array $storeTransfers
     ): AssetTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetTransfer $assetTransfer
-     *
-     * @return \Generated\Shared\Transfer\AssetTransfer
-     */
     public function saveAsset(AssetTransfer $assetTransfer): AssetTransfer;
 
     /**
@@ -40,11 +35,6 @@ interface AssetEntityManagerInterface
         array $storeTransfers
     ): AssetTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetTransfer $assetTransfer
-     *
-     * @return void
-     */
     public function deleteAsset(AssetTransfer $assetTransfer): void;
 
     /**
@@ -55,8 +45,5 @@ interface AssetEntityManagerInterface
      */
     public function deleteAssetStores(AssetTransfer $assetTransfer, array $storeTransfers): void;
 
-    /**
-     * @return bool
-     */
     public function hasIsActiveColumn(): bool;
 }

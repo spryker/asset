@@ -19,25 +19,16 @@ use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
  */
 class AssetPersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Orm\Zed\Asset\Persistence\SpyAssetQuery
-     */
     public function createAssetQuery(): SpyAssetQuery
     {
         return SpyAssetQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\Asset\Persistence\SpyAssetStoreQuery
-     */
     public function createAssetStoreQuery(): SpyAssetStoreQuery
     {
         return SpyAssetStoreQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\Asset\Persistence\Mapper\AssetMapper
-     */
     public function createAssetMapper(): AssetMapper
     {
         return new AssetMapper();

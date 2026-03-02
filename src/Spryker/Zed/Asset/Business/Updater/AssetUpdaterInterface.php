@@ -21,10 +21,5 @@ interface AssetUpdaterInterface
      */
     public function updateAsset(AssetUpdatedTransfer $assetUpdatedTransfer): AssetTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetUpdatedTransfer $assetUpdatedTransfer
-     *
-     * @return \Generated\Shared\Transfer\AssetTransfer
-     */
     public function saveAsset(AssetUpdatedTransfer $assetUpdatedTransfer): AssetTransfer;
 }

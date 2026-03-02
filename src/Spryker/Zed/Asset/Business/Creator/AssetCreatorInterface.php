@@ -21,10 +21,5 @@ interface AssetCreatorInterface
      */
     public function addAsset(AssetAddedTransfer $assetAddedTransfer): AssetTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetAddedTransfer $assetAddedTransfer
-     *
-     * @return \Generated\Shared\Transfer\AssetTransfer
-     */
     public function createAsset(AssetAddedTransfer $assetAddedTransfer): AssetTransfer;
 }

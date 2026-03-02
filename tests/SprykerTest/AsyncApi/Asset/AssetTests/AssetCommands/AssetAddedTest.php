@@ -29,9 +29,6 @@ class AssetAddedTest extends Unit
      */
     protected AsyncApiTester $tester;
 
-    /**
-     * @return void
-     */
     public function testAssetAddedMessageCreatesAnAssetEntity(): void
     {
         // Arrange

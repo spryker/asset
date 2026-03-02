@@ -32,11 +32,6 @@ class AssetToStoreFacadeBridge implements AssetToStoreInterface
         return $this->storeFacade->getAllStores();
     }
 
-    /**
-     * @param string $storeReference
-     *
-     * @return \Generated\Shared\Transfer\StoreTransfer
-     */
     public function getStoreByStoreReference(string $storeReference): StoreTransfer
     {
         return $this->storeFacade->getStoreByStoreReference($storeReference);

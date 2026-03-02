@@ -30,21 +30,11 @@ class AssetDataHelper extends Module
     use DataCleanupHelperTrait;
     use LocatorHelperTrait;
 
-    /**
-     * @param array $seed
-     *
-     * @return \Generated\Shared\Transfer\AssetTransfer
-     */
     public function haveAssetTransfer(array $seed = []): AssetTransfer
     {
         return (new AssetBuilder($seed))->build();
     }
 
-    /**
-     * @param array $seed
-     *
-     * @return \Generated\Shared\Transfer\AssetTransfer
-     */
     public function haveAsset(array $seed = []): AssetTransfer
     {
         $assetTransfer = $this->haveAssetTransfer($seed);
@@ -77,12 +67,6 @@ class AssetDataHelper extends Module
         return $assetTransfer;
     }
 
-    /**
-     * @param int $idAsset
-     * @param int $idStore
-     *
-     * @return void
-     */
     public function haveAssetStoreRelation(int $idAsset, int $idStore): void
     {
         $assetStoreEntity = SpyAssetStoreQuery::create()
@@ -99,11 +83,6 @@ class AssetDataHelper extends Module
         });
     }
 
-    /**
-     * @param string $assetUuid
-     *
-     * @return void
-     */
     public function removeAsset(string $assetUuid): void
     {
         $assetTransfer = $this->getPersistedAssetByUuid($assetUuid);
@@ -116,11 +95,6 @@ class AssetDataHelper extends Module
         $assetEntityManager->deleteAsset($assetTransfer);
     }
 
-    /**
-     * @param string $assetUuid
-     *
-     * @return \Generated\Shared\Transfer\AssetTransfer|null
-     */
     public function getPersistedAssetByUuid(string $assetUuid): ?AssetTransfer
     {
         $assetRepository = new AssetRepository();
@@ -128,31 +102,16 @@ class AssetDataHelper extends Module
         return $assetRepository->findAssetByAssetUuid($assetUuid);
     }
 
-    /**
-     * @param array $seed
-     *
-     * @return \Generated\Shared\Transfer\AssetAddedTransfer
-     */
     public function generateAssetAddedTransfer(array $seed = []): AssetAddedTransfer
     {
         return (new AssetAddedBuilder($seed))->build();
     }
 
-    /**
-     * @param array $seed
-     *
-     * @return \Generated\Shared\Transfer\AssetUpdatedTransfer
-     */
     public function generateAssetUpdatedTransfer(array $seed = []): AssetUpdatedTransfer
     {
         return (new AssetUpdatedBuilder($seed))->build();
     }
 
-    /**
-     * @param array $seed
-     *
-     * @return \Generated\Shared\Transfer\AssetDeletedTransfer
-     */
     public function generateAssetDeletedTransfer(array $seed = []): AssetDeletedTransfer
     {
         return (new AssetDeletedBuilder($seed))->build();

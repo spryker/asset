@@ -32,11 +32,6 @@ class AssetEntityManager extends AbstractEntityManager implements AssetEntityMan
         return $this->saveAssetStoreRelationsByAsset($assetTransfer, $storeTransfers);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetTransfer $assetTransfer
-     *
-     * @return \Generated\Shared\Transfer\AssetTransfer
-     */
     public function saveAsset(AssetTransfer $assetTransfer): AssetTransfer
     {
         $assetTransfer->requireAssetUuid()
@@ -84,11 +79,6 @@ class AssetEntityManager extends AbstractEntityManager implements AssetEntityMan
         return $assetTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetTransfer $assetTransfer
-     *
-     * @return void
-     */
     public function deleteAsset(AssetTransfer $assetTransfer): void
     {
         /** @var \Propel\Runtime\Collection\ObjectCollection $assetStoreObjectCollection */
@@ -107,12 +97,6 @@ class AssetEntityManager extends AbstractEntityManager implements AssetEntityMan
         }
     }
 
-    /**
-     * @param int $fkAsset
-     * @param int $fkStore
-     *
-     * @return void
-     */
     protected function saveAssetStore(int $fkAsset, int $fkStore): void
     {
         $assetStoreEntity = $this->getFactory()
@@ -164,9 +148,6 @@ class AssetEntityManager extends AbstractEntityManager implements AssetEntityMan
         $assetStoreCollection->delete();
     }
 
-    /**
-     * @return bool
-     */
     public function hasIsActiveColumn(): bool
     {
         return SpyAsset::TABLE_MAP::getTableMap()->hasColumn('is_active');

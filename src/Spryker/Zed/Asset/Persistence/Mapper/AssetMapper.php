@@ -15,12 +15,6 @@ use Spryker\Zed\Asset\Business\TimeStamp\AssetTimeStamp;
 
 class AssetMapper
 {
-    /**
-     * @param \Orm\Zed\Asset\Persistence\SpyAsset $assetEntity
-     * @param \Generated\Shared\Transfer\AssetTransfer $assetTransfer
-     *
-     * @return \Generated\Shared\Transfer\AssetTransfer
-     */
     public function mapAssetEntityToAssetTransfer(
         SpyAsset $assetEntity,
         AssetTransfer $assetTransfer

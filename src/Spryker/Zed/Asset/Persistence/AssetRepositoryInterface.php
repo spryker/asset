@@ -13,11 +13,6 @@ use Generated\Shared\Transfer\AssetTransfer;
 
 interface AssetRepositoryInterface
 {
-    /**
-     * @param string $assetUuid
-     *
-     * @return \Generated\Shared\Transfer\AssetTransfer|null
-     */
     public function findAssetByAssetUuid(string $assetUuid): ?AssetTransfer;
 
     /**
@@ -29,10 +24,5 @@ interface AssetRepositoryInterface
      */
     public function findAssetById(int $idAsset): ?AssetTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetCriteriaTransfer $assetCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\AssetCollectionTransfer
-     */
     public function getAssetCollection(AssetCriteriaTransfer $assetCriteriaTransfer): AssetCollectionTransfer;
 }

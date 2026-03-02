@@ -13,21 +13,10 @@ use Generated\Shared\Transfer\AssetTransfer;
 
 interface AssetMapperInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\AssetAddedTransfer $assetAddedTransfer
-     * @param \Generated\Shared\Transfer\AssetTransfer $assetTransfer
-     *
-     * @return \Generated\Shared\Transfer\AssetTransfer
-     */
     public function mapAssetAddedTransferToAssetTransfer(
         AssetAddedTransfer $assetAddedTransfer,
         AssetTransfer $assetTransfer
     ): AssetTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetDeletedTransfer $assetDeletedTransfer
-     *
-     * @return \Generated\Shared\Transfer\AssetTransfer
-     */
     public function generateAssetTransferFromAssetDeletedTransfer(AssetDeletedTransfer $assetDeletedTransfer): AssetTransfer;
 }

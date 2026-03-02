@@ -13,12 +13,6 @@ use Generated\Shared\Transfer\AssetTransfer;
 
 class AssetMapper implements AssetMapperInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\AssetAddedTransfer $assetAddedTransfer
-     * @param \Generated\Shared\Transfer\AssetTransfer $assetTransfer
-     *
-     * @return \Generated\Shared\Transfer\AssetTransfer
-     */
     public function mapAssetAddedTransferToAssetTransfer(
         AssetAddedTransfer $assetAddedTransfer,
         AssetTransfer $assetTransfer
@@ -32,11 +26,6 @@ class AssetMapper implements AssetMapperInterface
             ->setLastMessageTimestamp($assetAddedTransfer->getMessageAttributesOrFail()->getTimestamp());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetDeletedTransfer $assetDeletedTransfer
-     *
-     * @return \Generated\Shared\Transfer\AssetTransfer
-     */
     public function generateAssetTransferFromAssetDeletedTransfer(AssetDeletedTransfer $assetDeletedTransfer): AssetTransfer
     {
         $assetTransfer = new AssetTransfer();

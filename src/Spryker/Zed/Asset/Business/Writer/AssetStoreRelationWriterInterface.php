@@ -9,8 +9,5 @@ namespace Spryker\Zed\Asset\Business\Writer;
 
 interface AssetStoreRelationWriterInterface
 {
-    /**
-     * @return void
-     */
     public function refreshAllAssetStoreRelations(): void;
 }

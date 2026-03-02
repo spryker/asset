@@ -52,11 +52,6 @@ class AssetBusinessTester extends Actor
         return [$timeOld->format(AssetTimeStamp::TIMESTAMP_FORMAT), $timeNew->format(AssetTimeStamp::TIMESTAMP_FORMAT)];
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetTransfer $assetTransfer
-     *
-     * @return void
-     */
     public function assertAssetTransferAndAssetEntityAreEqual(AssetTransfer $assetTransfer): void
     {
         $assetEntity = SpyAssetQuery::create()->filterByAssetUuid($assetTransfer->getAssetUuid())->findOne();
@@ -67,11 +62,6 @@ class AssetBusinessTester extends Actor
         $this->assertEquals($assetTransfer->getLastMessageTimestamp(), $assetEntity->getLastMessageTimestamp()->format(AssetTimeStamp::TIMESTAMP_FORMAT));
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetTransfer $assetTransfer
-     *
-     * @return void
-     */
     public function assertAssetTransferAndAssetEntityAreEqualWithNewerTimestamp(AssetTransfer $assetTransfer): void
     {
         $assetEntity = SpyAssetQuery::create()->filterByAssetUuid($assetTransfer->getAssetUuid())->findOne();
@@ -82,11 +72,6 @@ class AssetBusinessTester extends Actor
         $this->assertGreaterThan($assetTransfer->getLastMessageTimestamp(), $assetEntity->getLastMessageTimestamp()->format(AssetTimeStamp::TIMESTAMP_FORMAT));
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetAddedTransfer $assetAddedTransfer
-     *
-     * @return void
-     */
     public function assertAssetAddedTransferAndAssetEntityAreEqual(AssetAddedTransfer $assetAddedTransfer): void
     {
         $assetEntity = SpyAssetQuery::create()->filterByAssetUuid($assetAddedTransfer->getAssetIdentifierOrFail())->findOne();
@@ -97,11 +82,6 @@ class AssetBusinessTester extends Actor
         $this->assertEquals($assetAddedTransfer->getMessageAttributesOrFail()->getTimestampOrFail(), $assetEntity->getLastMessageTimestamp()->format(AssetTimeStamp::TIMESTAMP_FORMAT));
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetUpdatedTransfer $assetUpdatedTransfer
-     *
-     * @return void
-     */
     public function assertAssetUpdatedTransferAndAssetEntityAreEqual(AssetUpdatedTransfer $assetUpdatedTransfer): void
     {
         $assetEntity = SpyAssetQuery::create()->filterByAssetUuid($assetUpdatedTransfer->getAssetIdentifierOrFail())->findOne();
@@ -112,11 +92,6 @@ class AssetBusinessTester extends Actor
         $this->assertEquals($assetUpdatedTransfer->getMessageAttributesOrFail()->getTimestampOrFail(), $assetEntity->getLastMessageTimestamp()->format(AssetTimeStamp::TIMESTAMP_FORMAT));
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetDeletedTransfer $assetDeletedTransfer
-     *
-     * @return void
-     */
     public function assertAssetDeletedTransferAndAssetEntityAreEqual(AssetDeletedTransfer $assetDeletedTransfer): void
     {
         $assetEntity = SpyAssetQuery::create()->filterByAssetUuid($assetDeletedTransfer->getAssetIdentifierOrFail())->findOne();
@@ -127,12 +102,6 @@ class AssetBusinessTester extends Actor
         $this->assertEquals($assetDeletedTransfer->getMessageAttributesOrFail()->getTimestampOrFail(), $assetEntity->getLastMessageTimestamp()->format(AssetTimeStamp::TIMESTAMP_FORMAT));
     }
 
-    /**
-     * @param int $idAsset
-     * @param int $idStore
-     *
-     * @return void
-     */
     public function assertAssetStoreRelationExists(int $idAsset, int $idStore): void
     {
         $this->assertTrue(
@@ -140,12 +109,6 @@ class AssetBusinessTester extends Actor
         );
     }
 
-    /**
-     * @param int $idAsset
-     * @param int $idStore
-     *
-     * @return void
-     */
     public function assertAssetStoreRelationDoesNotExist(int $idAsset, int $idStore): void
     {
         $this->assertFalse(

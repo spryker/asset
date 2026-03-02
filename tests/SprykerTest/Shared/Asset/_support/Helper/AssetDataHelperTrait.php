@@ -11,9 +11,6 @@ use Codeception\Module;
 
 trait AssetDataHelperTrait
 {
-    /**
-     * @return \SprykerTest\Shared\Asset\Helper\AssetDataHelper
-     */
     protected function getAssetDataHelper(): AssetDataHelper
     {
         /** @var \SprykerTest\Shared\Asset\Helper\AssetDataHelper $assetDataHelper */
@@ -22,10 +19,5 @@ trait AssetDataHelperTrait
         return $assetDataHelper;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return \Codeception\Module
-     */
     abstract protected function getModule(string $name): Module;
 }

@@ -19,12 +19,6 @@ class AssetTimeStamp implements AssetTimeStampInterface
      */
     public const TIMESTAMP_FORMAT = "Y-m-d\TH:i:s.u";
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetTransfer $assetTransfer
-     * @param \Generated\Shared\Transfer\MessageAttributesTransfer $messageAttributesTransfer
-     *
-     * @return bool
-     */
     public function shouldTransferMessageBeProcessed(AssetTransfer $assetTransfer, MessageAttributesTransfer $messageAttributesTransfer): bool
     {
         if ($assetTransfer->getLastMessageTimestamp() === null) {
@@ -34,11 +28,6 @@ class AssetTimeStamp implements AssetTimeStampInterface
         return new DateTime($assetTransfer->getLastMessageTimestampOrFail()) < new DateTime($messageAttributesTransfer->getTimestampOrFail());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MessageAttributesTransfer $messageAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\MessageAttributesTransfer
-     */
     public function updateMessageAttributesTimestampIfRequired(MessageAttributesTransfer $messageAttributesTransfer): MessageAttributesTransfer
     {
         if ($messageAttributesTransfer->getTimestamp() == null) {

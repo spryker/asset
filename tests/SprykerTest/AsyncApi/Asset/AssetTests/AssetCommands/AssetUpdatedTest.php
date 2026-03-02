@@ -29,9 +29,6 @@ class AssetUpdatedTest extends Unit
      */
     protected AsyncApiTester $tester;
 
-    /**
-     * @return void
-     */
     public function testAssetUpdatedMessageUpdatesAssetSlot(): void
     {
         // Arrange
@@ -53,9 +50,6 @@ class AssetUpdatedTest extends Unit
         $this->tester->assertAssetWithUuidEquals($assetUuid, $assetTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testAssetUpdatedMessageUpdatesAssetContent(): void
     {
         // Arrange
@@ -77,9 +71,6 @@ class AssetUpdatedTest extends Unit
         $this->tester->assertAssetWithUuidEquals($assetUuid, $assetTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testAssetUpdatedMessageDoesNotUpdateAssetName(): void
     {
         // Arrange
@@ -101,9 +92,6 @@ class AssetUpdatedTest extends Unit
         $this->tester->assertAssetWithUuidEquals($assetUuid, $assetTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testAssetUpdatedMessageAddsAssetWhenAssetDoesNotExists(): void
     {
         // Arrange

@@ -14,11 +14,6 @@ class AssetAssertionHelper extends Module
 {
     use AssetDataHelperTrait;
 
-    /**
-     * @param string $assetUuid
-     *
-     * @return void
-     */
     public function assertAssetWithUuidExists(string $assetUuid): void
     {
         $assetTransfer = $this->getAssetDataHelper()->getPersistedAssetByUuid($assetUuid);
@@ -26,11 +21,6 @@ class AssetAssertionHelper extends Module
         $this->assertNotNull($assetTransfer, sprintf('Expected Asset with identifier "%s" was not found.', $assetUuid));
     }
 
-    /**
-     * @param string $assetUuid
-     *
-     * @return void
-     */
     public function assertAssetWithUuidDoesNotExists(string $assetUuid): void
     {
         $assetTransfer = $this->getAssetDataHelper()->getPersistedAssetByUuid($assetUuid);
@@ -38,11 +28,6 @@ class AssetAssertionHelper extends Module
         $this->assertNull($assetTransfer, sprintf('Expected that the Asset with identifier "%s" was deleted but it was found.', $assetUuid));
     }
 
-    /**
-     * @param string $assetUuid
-     *
-     * @return void
-     */
     public function assertAssetWithUuidIsInactive(string $assetUuid): void
     {
         $assetTransfer = $this->getAssetDataHelper()->getPersistedAssetByUuid($assetUuid);
@@ -51,12 +36,6 @@ class AssetAssertionHelper extends Module
         $this->assertFalse($assetTransfer->getIsActive(), sprintf('Expected Asset with identifier "%s" is inactive but it is active.', $assetUuid));
     }
 
-    /**
-     * @param string $assetUuid
-     * @param \Generated\Shared\Transfer\AssetTransfer $assetTransfer
-     *
-     * @return void
-     */
     public function assertAssetWithUuidEquals(string $assetUuid, AssetTransfer $assetTransfer): void
     {
         $persistedAssetTransfer = $this->getAssetDataHelper()->getPersistedAssetByUuid($assetUuid);

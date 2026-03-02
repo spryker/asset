@@ -20,10 +20,5 @@ interface AssetDeleterInterface
      */
     public function deleteAsset(AssetDeletedTransfer $assetDeletedTransfer): void;
 
-    /**
-     * @param \Generated\Shared\Transfer\AssetDeletedTransfer $assetDeletedTransfer
-     *
-     * @return void
-     */
     public function removeAsset(AssetDeletedTransfer $assetDeletedTransfer): void;
 }
